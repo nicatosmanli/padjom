@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" lang="de">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PADJOM</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script type="text/javascript" src="main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<span>Ihre IP-Addresse : </span><span id="ip">Überprüfung...</span><br />
+    <hr />
+    <span>Ihr User-Agent : </span><span id="uag">Überprüfung...</span><br />
+    <hr />
+    <span>Ihr Gebietsschema (Ländercode) : </span
+    ><span id="locale">Überprüfung...</span><br />
+    <hr />
+    <script type="application/javascript">
+      $.get("https://pages.dev/cdn-cgi/trace", function (data) {
+        data = data
+          .trim()
+          .split("\n")
+          .reduce(function (obj, pair) {
+            pair = pair.split("=");
+            return (obj[pair[0]] = pair[1]), obj;
+          }, {});
+        var ipjsonfile = data;
+        document.getElementById("ip").innerHTML = ipjsonfile.ip;
+        document.getElementById("uag").innerHTML = ipjsonfile.uag;
+        let countryName = new Intl.DisplayNames(["en"], { type: "region" });
+        document.getElementById("locale").innerHTML =
+          ipjsonfile.loc + " (" + countryName.of(ipjsonfile.loc) + ")";
+      });
+    </script>
+	<div style="text-align:center">
+		<span id="ip"></span>
+		<script type="text/javascript">
+			document.getElementById("ip").innerHTML
+		</script>
+		<h1 style="text-align: center; color: #1a1718;" lang="de">Hallo Welt</h1>
+	    <h2 style="text-align: center; color: #1a1718;" lang="de">Dies Ist Die Offizielle Website Der Digitlen Organisation "PADJOM"</h2>
+	    <a href="index.html"><button style="color: black; float: none; height: 50px; width: 300px; font-size: 40px; text-align: center;">Die Info</button></a>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Deutschland, Deutschland über alles,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Über alles in der Welt,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Wenn es stets zu Schutz und Trutze</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Brüderlich zusammenhält.</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Von der Maas bis an die Memel,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Von der Etsch bis an den Belt,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Deutschland, Deutschland über alles,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Über alles in der Welt!</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">                       </p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Deutsche Frauen, deutsche Treue,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Deutscher Wein und deutscher Sang</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Sollen in der Welt behalten</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Ihren alten schönen Klang,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Uns zu edler Tat begeistern</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Unser ganzes Leben lang –</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Deutsche Frauen, deutsche Treue,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Deutscher Wein und deutscher Sang!</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Einigkeit und Recht und Freiheit</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Für das deutsche Vaterland!</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Danach lasst uns alle streben</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Brüderlich mit Herz und Hand!</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Einigkeit und Recht und Freiheit</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Sind des Glückes Unterpfand –</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Blüh' im Glanze dieses Glückes,</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de">Blühe, deutsches Vaterland!</p>
+	    <p style="text-align: center; color: #1a1718;" lang="de"></p>
+	    <p style="text-align: center; color: #1a1718;" lang="de"></p>
+	    <p style="text-align: center; color: #1a1718;" lang="de"></p>
+	    <p style="text-align: center; color: #1a1718;" lang="de"></p>
+	    
+	</div>
+</body>
+</html>
